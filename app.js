@@ -32,14 +32,14 @@ startButton.addEventListener('click', () => {
 	}
 });
 
-function getRandomPhrase(arr) {
+function getRandomPhraseAsArray(arr) {
 	const randomNumber = Math.floor(Math.random() * arr.length);
 	const randomPhrase = arr[randomNumber];
 	const characters = randomPhrase.split('');
 	return characters;
 }
 
-function displayPhrase(arr) {
+function addPhraseToDisplay(arr) {
 	for (let i = 0; i < arr.length; i++) {
 		const li = document.createElement('li');
 		li.textContent = arr[i];
@@ -67,11 +67,11 @@ keyboard.addEventListener('click', (e) => {
 			missed++;
 		}
 	}
-	checkForWinner();
+	checkWin();
 
 })
 
-function checkKey(letter) {
+function checkLetter(letter) {
 	const letters = document.querySelectorAll('.letter');
 	let matchingLetter;
 	let matchCounter = 0;
@@ -92,7 +92,7 @@ function checkKey(letter) {
 	}
 }
 
-function checkForWinner() {
+function checkWin() {
 	const totalLetters = document.querySelectorAll('.letter');
 	const shownLetters = document.querySelectorAll('.show');
 	const h3 = document.createElement('h3');
