@@ -60,7 +60,7 @@ keyboard.addEventListener('click', (e) => {
 		button.className = 'chosen';
 		button.setAttribute('disabled', '');
 		const letter = button.textContent;
-		const letterFound = checkKey(letter);
+		const letterFound = checkLetter(letter);
 		if (letterFound === null) {
 			heartArray[missed].src = 'images/lostHeart.png';
 			button.className = 'wrong';
@@ -128,8 +128,8 @@ function showAnswerPhrase() {
 }
 
 function start() {
-	const phraseArray = getRandomPhrase(phrases);
-	displayPhrase(phraseArray);
+	const phraseArray = getRandomPhraseAsArray(phrases);
+	addPhraseToDisplay(phraseArray);
 }
 
 function reset() {
